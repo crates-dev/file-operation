@@ -1,3 +1,3 @@
 pub(crate) mod file;
 
-pub use file::{read::*, write::*};
+pub use file::{r#type::*, read::*, write::*};
