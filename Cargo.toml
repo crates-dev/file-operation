@@ -1,0 +1,16 @@
+[package]
+name = "file-operation"
+version = "0.0.1"
+edition = "2021"
+authors = ["ltpp-universe <root@ltpp.vip>"] 
+license = "MIT"
+description = """A Rust library providing a set of utilities for common file operations such as reading, writing, and querying file metadata like size. It aims to simplify file handling in Rust projects, offering safe and efficient file manipulation methods."""
+keywords = ["time", "hyperlane", "day", "format", "lang"]
+repository = "https://github.com/ltpp-universe/file-operation.git"
+categories = ["network-programming", "web-programming"]
+exclude = [
+    "target",
+    "Cargo.lock",
+    "sh",
+    ".github"
+]
