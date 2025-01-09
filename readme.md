@@ -11,8 +11,6 @@
 
 > A Rust library providing a set of utilities for common file operations such as reading, writing, and querying file metadata like size. It aims to simplify file handling in Rust projects, offering safe and efficient file manipulation methods.
 
-## Features
-
 ## Installation
 
 To use this crate, you can run cmd:
