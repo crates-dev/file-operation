@@ -29,7 +29,7 @@ use std::{
 #[inline]
 pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
     if let Some(parent_dir) = std::path::Path::new(file_path).parent() {
-        let _ = fs::create_dir_all(parent_dir);
+        fs::create_dir_all(parent_dir)?;
     }
     OpenOptions::new()
         .write(true)
