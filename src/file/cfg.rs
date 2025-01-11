@@ -1,42 +1,23 @@
-static _FILE_PATH: &str = "./log/test.txt";
-
 #[test]
 fn test_write() {
     use crate::*;
-    let _ = write_to_file(_FILE_PATH, "test".as_bytes());
-    let res: Vec<u8> = read_from_file(_FILE_PATH).unwrap_or_default();
-    let size: Option<u64> = get_file_size(_FILE_PATH);
-    println!("test_write => {:?}", String::from_utf8_lossy(&res));
-    println!("test_write => {:?}", size);
-}
-
-#[test]
-fn test_copy() {
-    use crate::*;
-    use std::{thread::sleep, time::Duration};
-    sleep(Duration::from_secs(2));
-    let res: Result<(), std::io::Error> = copy_dir_files("./log", "./cp_test");
-    println!("test_copy => {:?}", res);
-}
-
-#[test]
-fn test_move() {
-    use crate::*;
-    use std::{thread::sleep, time::Duration};
-    sleep(Duration::from_secs(6));
-    let res: Result<(), std::io::Error> = move_dir("./log", "./test");
-    println!("test_move => {:?}", res);
-}
-
-#[test]
-fn test_delete() {
-    use crate::*;
-    use std::{thread::sleep, time::Duration};
-    sleep(Duration::from_secs(10));
-    let res: Result<(), std::io::Error> = delete_dir("./test");
-    println!("test_delete => {:?}", res);
-    let res: Result<(), std::io::Error> = delete_dir("./cp_test");
-    println!("test_delete => {:?}", res);
-    let res: Result<(), std::io::Error> = delete_dir(_FILE_PATH);
-    println!("test_delete => {:?}", res);
+    static FILE_DIR: &str = "./log";
+    static NEW_FILE_DIR: &str = "./new_log";
+    static NEW_TEST_DIR: &str = "./test_log";
+    static FILE_PATH: &str = "./log/test.txt";
+    let _ = write_to_file(FILE_PATH, "test".as_bytes());
+    let res: Vec<u8> = read_from_file(FILE_PATH).unwrap_or_default();
+    let size: Option<u64> = get_file_size(FILE_PATH);
+    println!("read_from_file => {:?}", String::from_utf8_lossy(&res));
+    println!("get_file_size => {:?}", size);
+    let res: Result<(), std::io::Error> = copy_dir_files(FILE_DIR, NEW_FILE_DIR);
+    println!("copy_dir_files => {:?}", res);
+    let res: Result<(), std::io::Error> = delete_file(FILE_PATH);
+    println!("delete_file => {:?}", res);
+    let res: Result<(), std::io::Error> = move_dir(FILE_DIR, NEW_TEST_DIR);
+    println!("move_dir => {:?}", res);
+    let res: Result<(), std::io::Error> = delete_dir(NEW_TEST_DIR);
+    println!("delete_dir => {:?}", res);
+    let res: Result<(), std::io::Error> = delete_dir(NEW_FILE_DIR);
+    println!("delete_dir => {:?}", res);
 }

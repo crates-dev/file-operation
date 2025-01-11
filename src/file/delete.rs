@@ -18,8 +18,6 @@ pub fn delete_file(path: &str) -> Result<(), io::Error> {
 /// - Returns: `Ok(())` if the directory and its contents were deleted successfully, or an `Err` with the error details.
 pub fn delete_dir(path: &str) -> Result<(), io::Error> {
     let dir_path: &Path = Path::new(path);
-    if dir_path.exists() {
-        fs::remove_dir_all(dir_path)?;
-    }
+    fs::remove_dir_all(dir_path)?;
     Ok(())
 }
