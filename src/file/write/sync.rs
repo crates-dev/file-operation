@@ -1,7 +1,5 @@
-use std::{
-    fs::{self, OpenOptions},
-    io::{Error, Write},
-};
+use std::fs::{create_dir_all, OpenOptions};
+use std::io::{Error, Write};
 
 /// Writes the provided content to a file at the specified `file_path`.
 /// If the file does not exist, it will be created. If the file exists, the content will be appended to it.
@@ -29,7 +27,7 @@ use std::{
 #[inline]
 pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
     if let Some(parent_dir) = std::path::Path::new(file_path).parent() {
-        fs::create_dir_all(parent_dir)?;
+        create_dir_all(parent_dir)?;
     }
     OpenOptions::new()
         .write(true)

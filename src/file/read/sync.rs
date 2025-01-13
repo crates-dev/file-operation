@@ -1,8 +1,6 @@
-use std::{
-    fs::{metadata, File},
-    io::Read,
-    path::Path,
-};
+use std::fs::*;
+use std::io::Read;
+use std::path::Path;
 
 /// Reads the content of a file at the specified `file_path` and converts it to the type `T`.
 /// The conversion is done by using the `From<Vec<u8>>` trait, which allows the file content

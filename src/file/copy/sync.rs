@@ -1,10 +1,10 @@
-use std::fs;
-use std::io;
-use std::path::Path;
-use std::path::PathBuf;
-
-use crate::delete_dir;
-use crate::delete_file;
+use crate::*;
+use std::{
+    ffi::OsString,
+    fs::{copy, create_dir_all, read_dir, DirEntry},
+    io::Error,
+    path::{Path, PathBuf},
+};
 
 /// Copies a file from the source path to the destination path.
 ///
@@ -12,8 +12,8 @@ use crate::delete_file;
 /// - `dest`: The destination file path.
 ///
 /// - Returns: `Ok(())` if the file was copied successfully, or an `Err` with the error details.
-pub fn copy_file(src: &str, dest: &str) -> Result<(), io::Error> {
-    fs::copy(src, dest)?;
+pub fn copy_file(src: &str, dest: &str) -> Result<(), Error> {
+    copy(src, dest)?;
     Ok(())
 }
 
@@ -29,7 +29,7 @@ pub fn copy_file(src: &str, dest: &str) -> Result<(), io::Error> {
 /// - `dest_dir`: The destination directory path.
 ///
 /// - Returns: `Ok(())` if the directory and its contents were copied successfully, or an `Err` with the error details.
-pub fn copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), io::Error> {
+pub fn copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), Error> {
     let src_path: &Path = Path::new(src_dir);
     let dest_path: &Path = Path::new(dest_dir);
     if dest_path.exists() {
@@ -42,10 +42,10 @@ pub fn copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), io::Error> {
             }
         }
     }
-    fs::create_dir_all(dest_path)?;
-    for entry in fs::read_dir(src_path)? {
-        let entry: fs::DirEntry = entry?;
-        let file_name = entry.file_name();
+    create_dir_all(dest_path)?;
+    for entry in read_dir(src_path)? {
+        let entry: DirEntry = entry?;
+        let file_name: OsString = entry.file_name();
         let src_file_path: PathBuf = entry.path();
         let mut dest_file_path: PathBuf = PathBuf::from(dest_path);
         dest_file_path.push(file_name);
@@ -55,7 +55,7 @@ pub fn copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), io::Error> {
                 dest_file_path.to_str().unwrap(),
             )?;
         } else if src_file_path.is_file() {
-            fs::copy(&src_file_path, &dest_file_path)?;
+            copy(&src_file_path, &dest_file_path)?;
         }
     }
     Ok(())
