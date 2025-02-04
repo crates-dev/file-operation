@@ -22,7 +22,6 @@ use std::io::{Error, Write};
 /// - The function first ensures that the parent directory of the file exists. If it doesn't, it attempts to create the entire directory structure using `create_dir_all`.
 /// - The file is opened using `OpenOptions` with the following options:
 ///     - `write(true)`: Open the file for writing.
-///     - `append(true)`: If the file exists, append the content to the end of the file.
 ///     - `create(true)`: If the file doesn't exist, create it.
 #[inline]
 pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
@@ -31,8 +30,8 @@ pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
     }
     OpenOptions::new()
         .write(true)
-        .append(true)
         .create(true)
+        .truncate(true)
         .open(file_path)
         .and_then(|mut file| file.write_all(content))
 }
