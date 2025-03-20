@@ -4,7 +4,7 @@ pub use file::{
     copy::{r#async::*, sync::*},
     delete::{r#async::*, sync::*},
     r#move::{r#async::*, sync::*},
-    r#type::*,
     read::{r#async::*, sync::*},
+    r#type::*,
     write::{r#async::*, sync::*},
 };

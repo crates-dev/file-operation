@@ -5,7 +5,7 @@ use std::{
     path::{Path, PathBuf},
 };
 use tokio::{
-    fs::{copy, create_dir_all, read_dir, ReadDir},
+    fs::{ReadDir, copy, create_dir_all, read_dir},
     spawn,
     task::JoinHandle,
 };

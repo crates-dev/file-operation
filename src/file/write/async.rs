@@ -1,4 +1,4 @@
-use tokio::fs::{create_dir_all, OpenOptions};
+use tokio::fs::{OpenOptions, create_dir_all};
 use tokio::io::{AsyncWriteExt, Error};
 
 /// Writes the provided content to a file at the specified `file_path` asynchronously.

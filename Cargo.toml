@@ -1,7 +1,7 @@
 [package]
 name = "file-operation"
-version = "0.4.3"
-edition = "2021"
+version = "0.5.0"
+edition = "2024"
 authors = ["ltpp-universe <root@ltpp.vip>"] 
 license = "MIT"
 description = """A Rust library providing a set of utilities for common file operations such as reading, writing, and querying file metadata like size. It aims to simplify file handling in Rust projects, offering safe and efficient file manipulation methods."""
@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [dependencies]
-tokio = { version = "1.44.0", features = ["full"] }
+tokio = { version = "1.44.1", features = ["full"] }
 
 [profile.dev]
 incremental = false

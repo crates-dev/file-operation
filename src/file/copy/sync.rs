@@ -1,7 +1,7 @@
 use crate::*;
 use std::{
     ffi::OsString,
-    fs::{copy, create_dir_all, read_dir, DirEntry},
+    fs::{DirEntry, copy, create_dir_all, read_dir},
     io::Error,
     path::{Path, PathBuf},
 };

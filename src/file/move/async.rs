@@ -2,7 +2,7 @@ use std::ffi::OsString;
 use std::future::Future;
 use std::path::{Path, PathBuf};
 use std::pin::Pin;
-use tokio::fs::{create_dir_all, read_dir, remove_dir, remove_dir_all, rename, ReadDir};
+use tokio::fs::{ReadDir, create_dir_all, read_dir, remove_dir, remove_dir_all, rename};
 use tokio::io::Error;
 
 /// Moves a file from the source path to the destination path asynchronously.
