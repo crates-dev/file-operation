@@ -24,7 +24,6 @@ use tokio::io::AsyncReadExt;
 /// # Notes
 /// - The function assumes that the content of the file can be represented as a byte vector (`Vec<u8>`),
 ///   which is then passed to `T::from` for conversion.
-#[inline]
 pub async fn async_read_from_file<T>(file_path: &str) -> Result<T, Box<dyn std::error::Error>>
 where
     T: From<Vec<u8>>,
@@ -54,7 +53,6 @@ where
 /// - The function uses `metadata` to retrieve the file's metadata and specifically its size (`metadata.len()`).
 ///   If the file metadata is not accessible or the file does not exist, the function will return `None`.
 ///   This is useful when you want to safely handle cases where the file might not be present or readable.
-#[inline]
 pub async fn async_get_file_size(file_path: &str) -> Option<u64> {
     metadata(file_path)
         .await

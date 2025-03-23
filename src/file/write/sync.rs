@@ -17,7 +17,6 @@ use std::io::{Error, Write};
 /// - If the file cannot be created or opened for writing, an error will be returned. This can happen if:
 ///     - There is a problem with the file path (e.g., invalid or inaccessible path).
 ///     - There are I/O issues when writing to the file.
-#[inline]
 pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
     if let Some(parent_dir) = std::path::Path::new(file_path).parent() {
         create_dir_all(parent_dir)?;
@@ -46,7 +45,6 @@ pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
 /// - If the file cannot be created or opened for writing, an error will be returned. This can happen if:
 ///     - There is a problem with the file path (e.g., invalid or inaccessible path).
 ///     - There are I/O issues when writing to the file.
-#[inline]
 pub fn append_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
     if let Some(parent_dir) = std::path::Path::new(file_path).parent() {
         create_dir_all(parent_dir)?;
