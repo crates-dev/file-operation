@@ -1,10 +1,10 @@
 #[tokio::test]
 async fn test_write() {
     use crate::*;
-    static FILE_DIR: &str = "./log";
-    static NEW_FILE_DIR: &str = "./new_log";
-    static NEW_TEST_DIR: &str = "./test_log";
-    static FILE_PATH: &str = "./log/test.txt";
+    const FILE_DIR: &str = "./log";
+    const NEW_FILE_DIR: &str = "./new_log";
+    const NEW_TEST_DIR: &str = "./test_log";
+    const FILE_PATH: &str = "./log/test.txt";
     let _ = write_to_file(FILE_PATH, "test".as_bytes());
     let res: Vec<u8> = read_from_file(FILE_PATH).unwrap_or_default();
     let size: Option<u64> = get_file_size(FILE_PATH);
