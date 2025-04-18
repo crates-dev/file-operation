@@ -1,4 +1,4 @@
-use super::r#type::FileDataString;
+use super::r#struct::FileDataString;
 use std::fmt;
 
 impl From<Vec<u8>> for FileDataString {

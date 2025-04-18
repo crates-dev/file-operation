@@ -5,6 +5,6 @@ pub use file::{
     delete::{r#async::*, sync::*},
     r#move::{r#async::*, sync::*},
     read::{r#async::*, sync::*},
-    r#type::*,
+    r#struct::*,
     write::{r#async::*, sync::*},
 };
