@@ -1,12 +1,12 @@
 [package]
 name = "file-operation"
-version = "0.5.9"
+version = "0.5.10"
 edition = "2024"
-authors = ["ltpp-universe <root@ltpp.vip>"] 
+authors = ["eastspire <root@ltpp.vip>"] 
 license = "MIT"
 description = """A Rust library providing a set of utilities for common file operations such as reading, writing, and querying file metadata like size. It aims to simplify file handling in Rust projects, offering safe and efficient file manipulation methods."""
 keywords = ["time", "hyperlane", "day", "format", "lang"]
-repository = "https://github.com/ltpp-universe/file-operation.git"
+repository = "https://github.com/eastspire/file-operation.git"
 categories = ["network-programming", "web-programming"]
 exclude = [
     "target",
@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [dependencies]
-tokio = { version = "1.44.2", features = ["full"] }
+tokio = { version = "1.45.0", features = ["full"] }
 
 [profile.dev]
 incremental = false
