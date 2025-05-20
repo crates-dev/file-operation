@@ -5,7 +5,7 @@
 [![](https://img.shields.io/crates/v/file-operation.svg)](https://crates.io/crates/file-operation)
 [![](https://img.shields.io/crates/d/file-operation.svg)](https://img.shields.io/crates/d/file-operation.svg)
 [![](https://docs.rs/file-operation/badge.svg)](https://docs.rs/file-operation)
-[![](https://github.com/ltpp-universe/file-operation/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/file-operation/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/file-operation/workflows/Rust/badge.svg)](https://github.com/eastspire/file-operation/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/file-operation.svg)](./LICENSE)
 
 </center>
@@ -236,4 +236,4 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 ## Contact
 
-For any inquiries, please reach out to the author at [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip).
+For any inquiries, please reach out to the author at [eastspire <root@ltpp.vip>](mailto:root@ltpp.vip).
