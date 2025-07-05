@@ -1,8 +1,8 @@
 [package]
 name = "file-operation"
-version = "0.5.13"
+version = "0.5.14"
 edition = "2024"
-authors = ["root@ltpp.vip"] 
+authors = ["root@ltpp.vip"]
 license = "MIT"
 description = """A Rust library providing a set of utilities for common file operations such as reading, writing, and querying file metadata like size. It aims to simplify file handling in Rust projects, offering safe and efficient file manipulation methods."""
 keywords = ["time", "hyperlane", "day", "format", "lang"]
