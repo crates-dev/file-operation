@@ -28,13 +28,13 @@ cargo add file-operation
 
 ### Write to File
 
-**Code:**
+**Code**
 
 ```rust
 let _ = write_to_file(FILE_PATH, "test".as_bytes());
 ```
 
-**Description:**
+**Description**
 Writes the given data (`"test".as_bytes()`) to the file specified by `FILE_PATH`.
 
 - `FILE_PATH` - Path to the target file.
@@ -42,13 +42,13 @@ Writes the given data (`"test".as_bytes()`) to the file specified by `FILE_PATH`
 
 ### Read from File
 
-**Code:**
+**Code**
 
 ```rust
 let res: Vec<u8> = read_from_file(FILE_PATH).unwrap_or_default();
 ```
 
-**Description:**
+**Description**
 Reads the contents of the file specified by `FILE_PATH`.
 
 - `FILE_PATH` - Path to the target file.
@@ -56,13 +56,13 @@ Reads the contents of the file specified by `FILE_PATH`.
 
 ### Get File Size
 
-**Code:**
+**Code**
 
 ```rust
 let size: Option<u64> = get_file_size(FILE_PATH);
 ```
 
-**Description:**
+**Description**
 Retrieves the size of the file specified by `FILE_PATH`.
 
 - `FILE_PATH` - Path to the target file.
@@ -70,13 +70,13 @@ Retrieves the size of the file specified by `FILE_PATH`.
 
 ### Copy Directory Files
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = copy_dir_files(FILE_DIR, NEW_FILE_DIR);
 ```
 
-**Description:**
+**Description**
 Copies all files from `FILE_DIR` to `NEW_FILE_DIR`.
 
 - `FILE_DIR` - Source directory path.
@@ -85,13 +85,13 @@ Copies all files from `FILE_DIR` to `NEW_FILE_DIR`.
 
 ### Delete File
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = delete_file(FILE_PATH);
 ```
 
-**Description:**
+**Description**
 Deletes the file specified by `FILE_PATH`.
 
 - `FILE_PATH` - Path to the target file.
@@ -99,13 +99,13 @@ Deletes the file specified by `FILE_PATH`.
 
 ### Move Directory
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = move_dir(FILE_DIR, NEW_TEST_DIR);
 ```
 
-**Description:**
+**Description**
 Moves the directory specified by `FILE_DIR` to `NEW_TEST_DIR`.
 
 - `FILE_DIR` - Source directory path.
@@ -114,13 +114,13 @@ Moves the directory specified by `FILE_DIR` to `NEW_TEST_DIR`.
 
 ### Delete Directory
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = delete_dir(NEW_TEST_DIR);
 ```
 
-**Description:**
+**Description**
 Deletes the directory specified by `NEW_TEST_DIR`.
 
 - `NEW_TEST_DIR` - Path to the target directory.
@@ -128,13 +128,13 @@ Deletes the directory specified by `NEW_TEST_DIR`.
 
 ### Asynchronous Write to File
 
-**Code:**
+**Code**
 
 ```rust
 let _ = async_write_to_file(FILE_PATH, "test".as_bytes()).await;
 ```
 
-**Description:**
+**Description**
 Writes the given data (`"test".as_bytes()`) to the file specified by `FILE_PATH` asynchronously.
 
 - `FILE_PATH` - Path to the target file.
@@ -142,13 +142,13 @@ Writes the given data (`"test".as_bytes()`) to the file specified by `FILE_PATH`
 
 ### Asynchronous Read from File
 
-**Code:**
+**Code**
 
 ```rust
 let res: Vec<u8> = async_read_from_file(FILE_PATH).await.unwrap_or_default();
 ```
 
-**Description:**
+**Description**
 Reads the contents of the file specified by `FILE_PATH` asynchronously.
 
 - `FILE_PATH` - Path to the target file.
@@ -156,13 +156,13 @@ Reads the contents of the file specified by `FILE_PATH` asynchronously.
 
 ### Asynchronous Get File Size
 
-**Code:**
+**Code**
 
 ```rust
 let size: Option<u64> = async_get_file_size(FILE_PATH).await;
 ```
 
-**Description:**
+**Description**
 Retrieves the size of the file specified by `FILE_PATH` asynchronously.
 
 - `FILE_PATH` - Path to the target file.
@@ -170,13 +170,13 @@ Retrieves the size of the file specified by `FILE_PATH` asynchronously.
 
 ### Asynchronous Copy Directory Files
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = async_copy_dir_files(FILE_DIR, NEW_FILE_DIR).await;
 ```
 
-**Description:**
+**Description**
 Copies all files from `FILE_DIR` to `NEW_FILE_DIR` asynchronously.
 
 - `FILE_DIR` - Source directory path.
@@ -185,13 +185,13 @@ Copies all files from `FILE_DIR` to `NEW_FILE_DIR` asynchronously.
 
 ### Asynchronous Delete File
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = async_delete_file(FILE_PATH).await;
 ```
 
-**Description:**
+**Description**
 Deletes the file specified by `FILE_PATH` asynchronously.
 
 - `FILE_PATH` - Path to the target file.
@@ -199,13 +199,13 @@ Deletes the file specified by `FILE_PATH` asynchronously.
 
 ### Asynchronous Move Directory
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = async_move_dir(FILE_DIR, NEW_TEST_DIR).await;
 ```
 
-**Description:**
+**Description**
 Moves the directory specified by `FILE_DIR` to `NEW_TEST_DIR` asynchronously.
 
 - `FILE_DIR` - Source directory path.
@@ -214,13 +214,13 @@ Moves the directory specified by `FILE_DIR` to `NEW_TEST_DIR` asynchronously.
 
 ### Asynchronous Delete Directory
 
-**Code:**
+**Code**
 
 ```rust
 let res: Result<(), std::io::Error> = async_delete_dir(NEW_TEST_DIR).await;
 ```
 
-**Description:**
+**Description**
 Deletes the directory specified by `NEW_TEST_DIR` asynchronously.
 
 - `NEW_TEST_DIR` - Path to the target directory.
