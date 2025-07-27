@@ -4,10 +4,14 @@ use std::path::PathBuf;
 
 /// Moves a file from the source path to the destination path.
 ///
-/// - `src`: The source file path.
-/// - `dest`: The destination file path.
+/// # Arguments
 ///
-/// - Returns: `Ok(())` if the file was moved successfully, or an `Err` with the error details.
+/// - `&str` - The source file path.
+/// - `&str` - The destination file path.
+///
+/// # Returns
+///
+/// - `Result<(), std::io::Error>` - Ok if the file was moved successfully, Err with error details otherwise.
 pub fn move_file(src: &str, dest: &str) -> Result<(), std::io::Error> {
     std::fs::rename(src, dest)?;
     Ok(())
@@ -15,10 +19,14 @@ pub fn move_file(src: &str, dest: &str) -> Result<(), std::io::Error> {
 
 /// Moves a directory and all its contents to another location.
 ///
-/// - `src_dir`: The source directory path.
-/// - `dest_dir`: The destination directory path.
+/// # Arguments
 ///
-/// - Returns: `Ok(())` if the directory and its contents were moved successfully, or an `Err` with the error details.
+/// - `&str` - The source directory path.
+/// - `&str` - The destination directory path.
+///
+/// # Returns
+///
+/// - `Result<(), std::io::Error>` - Ok if the directory was moved successfully, Err with error details otherwise.
 pub fn move_dir(src_dir: &str, dest_dir: &str) -> Result<(), std::io::Error> {
     let src_path: &Path = Path::new(src_dir);
     let dest_path: &Path = Path::new(dest_dir);

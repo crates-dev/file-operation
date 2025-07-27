@@ -8,10 +8,14 @@ use std::{
 
 /// Copies a file from the source path to the destination path.
 ///
-/// - `src`: The source file path.
-/// - `dest`: The destination file path.
+/// # Arguments
 ///
-/// - Returns: `Ok(())` if the file was copied successfully, or an `Err` with the error details.
+/// - `&str` - The source file path.
+/// - `&str` - The destination file path.
+///
+/// # Returns
+///
+/// - `Result<(), std::io::Error>` - Ok if the file was copied successfully, Err with error details otherwise.
 pub fn copy_file(src: &str, dest: &str) -> Result<(), Error> {
     copy(src, dest)?;
     Ok(())
@@ -19,16 +23,14 @@ pub fn copy_file(src: &str, dest: &str) -> Result<(), Error> {
 
 /// Copies all files from the source directory to the destination directory.
 ///
-/// - `src_dir`: The source directory path.
-/// - `dest_dir`: The destination directory path.
+/// # Arguments
 ///
-/// - Returns: `Ok(())` if all files were copied successfully, or an `Err` with the error details.
-/// Copies a directory and all its contents to another location.
+/// - `&str` - The source directory path.
+/// - `&str` - The destination directory path.
 ///
-/// - `src_dir`: The source directory path.
-/// - `dest_dir`: The destination directory path.
+/// # Returns
 ///
-/// - Returns: `Ok(())` if the directory and its contents were copied successfully, or an `Err` with the error details.
+/// - `Result<(), std::io::Error>` - Ok if all files were copied successfully, Err with error details otherwise.
 pub fn copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), Error> {
     let src_path: &Path = Path::new(src_dir);
     let dest_path: &Path = Path::new(dest_dir);

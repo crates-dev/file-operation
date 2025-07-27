@@ -1,3 +1,9 @@
+//! file-operation
+//!
+//! A Rust library providing comprehensive utilities for file operations with both sync/async support.
+//! Includes operations for copy, delete, move, read and write files. Simplifies file handling
+//! in Rust projects with safe and efficient methods for file manipulation and metadata querying.
+
 pub(crate) mod copy;
 pub(crate) mod delete;
 pub(crate) mod file;

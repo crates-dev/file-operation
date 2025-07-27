@@ -12,10 +12,14 @@ use tokio::{
 
 /// Asynchronously copies a file from the source path to the destination path.
 ///
-/// - `src`: The source file path.
-/// - `dest`: The destination file path.
+/// # Arguments
 ///
-/// - Returns: `Ok(())` if the file was copied successfully, or an `Err` with the error details.
+/// - `&str` - The source file path.
+/// - `&str` - The destination file path.
+///
+/// # Returns
+///
+/// - `Result<(), std::io::Error>` - Ok if the file was copied successfully, Err with error details otherwise.
 pub async fn async_copy_file(src: &str, dest: &str) -> Result<(), Error> {
     copy(src, dest).await?;
     Ok(())
@@ -23,10 +27,14 @@ pub async fn async_copy_file(src: &str, dest: &str) -> Result<(), Error> {
 
 /// Asynchronously copies all files from the source directory to the destination directory.
 ///
-/// - `src_dir`: The source directory path.
-/// - `dest_dir`: The destination directory path.
+/// # Arguments
 ///
-/// - Returns: `Ok(())` if all files were copied successfully, or an `Err` with the error details.
+/// - `&str` - The source directory path.
+/// - `&str` - The destination directory path.
+///
+/// # Returns
+///
+/// - `Result<(), std::io::Error>` - Ok if all files were copied successfully, Err with error details otherwise.
 pub async fn async_copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), Error> {
     let src_path: &Path = Path::new(src_dir);
     let dest_path: &Path = Path::new(dest_dir);

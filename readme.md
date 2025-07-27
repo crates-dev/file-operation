@@ -14,7 +14,7 @@
 
 [Api Docs](https://docs.rs/file-operation/latest/file_operation/)
 
-> A Rust library providing a set of utilities for common file operations such as reading, writing, and querying file metadata like size. It aims to simplify file handling in Rust projects, offering safe and efficient file manipulation methods.
+> A Rust library providing comprehensive utilities for file operations with both sync/async support. Includes operations for copy, delete, move, read and write files. Simplifies file handling in Rust projects with safe and efficient methods for file manipulation and metadata querying.
 
 ## Installation
 
