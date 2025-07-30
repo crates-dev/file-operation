@@ -1,7 +1,7 @@
 use super::r#struct::FileDataString;
 use std::fmt;
 
-/// Implementation of conversion from byte vector to FileDataString.
+/// Provides conversion implementation from byte vector to FileDataString.
 impl From<Vec<u8>> for FileDataString {
     /// Converts a byte vector to FileDataString.
     ///
@@ -17,7 +17,7 @@ impl From<Vec<u8>> for FileDataString {
     }
 }
 
-/// Implementation of Display trait for FileDataString.
+/// Provides Display trait implementation for FileDataString.
 impl fmt::Display for FileDataString {
     /// Formats the FileDataString for display.
     ///

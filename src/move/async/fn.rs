@@ -29,7 +29,7 @@ pub async fn async_move_file(src: &str, dest: &str) -> Result<(), Error> {
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if the directory was moved successfully, Err with error details otherwise.
+/// - `Pin<Box<dyn Future<Output = Result<(), std::io::Error>> + 'a>>` - A pinned boxed future that resolves to the move operation result.
 pub fn async_move_dir<'a>(
     src_dir: &'a str,
     dest_dir: &'a str,
