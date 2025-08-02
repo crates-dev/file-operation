@@ -1,13 +1,13 @@
 [package]
 name = "file-operation"
-version = "0.8.2"
+version = "0.8.3"
 readme = "README.md"
 edition = "2024"
 authors = ["root@ltpp.vip"]
 license = "MIT"
 description = """A Rust library providing comprehensive utilities for file operations with both sync/async support. Includes operations for copy, delete, move, read and write files. Simplifies file handling in Rust projects with safe and efficient methods for file manipulation and metadata querying."""
 keywords = ["time", "hyperlane", "day", "format", "lang"]
-repository = "https://github.com/eastspire/file-operation.git"
+repository = "https://github.com/crates-dev/file-operation.git"
 categories = ["network-programming", "web-programming"]
 exclude = [
     "target",
