@@ -34,6 +34,6 @@ where
 pub async fn async_get_file_size(file_path: &str) -> Option<u64> {
     metadata(file_path)
         .await
-        .and_then(|metadata| Ok(Some(metadata.len())))
+        .map(|metadata| Some(metadata.len()))
         .unwrap_or(None)
 }

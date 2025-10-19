@@ -33,6 +33,6 @@ where
 /// - `Option<u64>` - The file size in bytes if successful, None otherwise.
 pub fn get_file_size(file_path: &str) -> Option<u64> {
     metadata(file_path)
-        .and_then(|metadata| Ok(Some(metadata.len())))
+        .map(|metadata| Some(metadata.len()))
         .unwrap_or(None)
 }

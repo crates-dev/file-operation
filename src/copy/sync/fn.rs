@@ -34,14 +34,14 @@ pub fn copy_file(src: &str, dest: &str) -> Result<(), Error> {
 pub fn copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), Error> {
     let src_path: &Path = Path::new(src_dir);
     let dest_path: &Path = Path::new(dest_dir);
-    if dest_path.exists() {
-        if let Some(dest_path_str) = dest_path.to_str() {
-            if dest_path.is_file() {
-                delete_file(dest_path_str)?;
-            }
-            if dest_path.is_dir() {
-                delete_dir(dest_path_str)?;
-            }
+    if dest_path.exists()
+        && let Some(dest_path_str) = dest_path.to_str()
+    {
+        if dest_path.is_file() {
+            delete_file(dest_path_str)?;
+        }
+        if dest_path.is_dir() {
+            delete_dir(dest_path_str)?;
         }
     }
     create_dir_all(dest_path)?;
