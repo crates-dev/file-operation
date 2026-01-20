@@ -1,6 +1,7 @@
+use crate::*;
+
 #[tokio::test]
 async fn test_write() {
-    use crate::*;
     const FILE_DIR: &str = "./log";
     const NEW_FILE_DIR: &str = "./new_log";
     const NEW_TEST_DIR: &str = "./test_log";
