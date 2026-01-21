@@ -1,9 +1,4 @@
-use std::ffi::OsString;
-use std::future::Future;
-use std::path::{Path, PathBuf};
-use std::pin::Pin;
-use tokio::fs::{ReadDir, create_dir_all, read_dir, remove_dir, remove_dir_all, rename};
-use tokio::io::Error;
+use crate::*;
 
 /// Moves a file from the source path to the destination path asynchronously.
 ///
@@ -16,7 +11,7 @@ use tokio::io::Error;
 ///
 /// - `Result<(), std::io::Error>` - Ok if the file was moved successfully, Err with error details otherwise.
 pub async fn async_move_file(src: &str, dest: &str) -> Result<(), Error> {
-    rename(src, dest).await?;
+    tokio::fs::rename(src, dest).await?;
     Ok(())
 }
 
@@ -38,10 +33,10 @@ pub fn async_move_dir<'a>(
         let src_path: &Path = Path::new(src_dir);
         let dest_path: &Path = Path::new(dest_dir);
         if dest_path.exists() {
-            remove_dir_all(dest_path).await?;
+            tokio::fs::remove_dir_all(dest_path).await?;
         }
-        create_dir_all(dest_path).await?;
-        let mut entries: ReadDir = read_dir(src_path).await?;
+        tokio::fs::create_dir_all(dest_path).await?;
+        let mut entries: ReadDir = tokio::fs::read_dir(src_path).await?;
         while let Some(entry) = entries.next_entry().await? {
             let file_name: OsString = entry.file_name();
             let src_file_path: PathBuf = entry.path();
@@ -54,10 +49,10 @@ pub fn async_move_dir<'a>(
                 )
                 .await?;
             } else if src_file_path.is_file() {
-                rename(&src_file_path, &dest_file_path).await?;
+                tokio::fs::rename(&src_file_path, &dest_file_path).await?;
             }
         }
-        remove_dir(src_path).await?;
+        tokio::fs::remove_dir(src_path).await?;
         Ok(())
     })
 }

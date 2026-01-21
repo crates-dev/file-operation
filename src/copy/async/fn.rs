@@ -1,14 +1,4 @@
-use crate::{delete_dir, delete_file};
-use std::{
-    ffi::OsString,
-    io::Error,
-    path::{Path, PathBuf},
-};
-use tokio::{
-    fs::{ReadDir, copy, create_dir_all, read_dir},
-    spawn,
-    task::JoinHandle,
-};
+use crate::*;
 
 /// Asynchronously copies a file from the source path to the destination path.
 ///
@@ -21,7 +11,7 @@ use tokio::{
 ///
 /// - `Result<(), std::io::Error>` - Ok if the file was copied successfully, Err with error details otherwise.
 pub async fn async_copy_file(src: &str, dest: &str) -> Result<(), Error> {
-    copy(src, dest).await?;
+    tokio::fs::copy(src, dest).await?;
     Ok(())
 }
 
@@ -48,9 +38,9 @@ pub async fn async_copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), E
             delete_dir(dest_path_str)?;
         }
     }
-    create_dir_all(dest_path).await?;
+    tokio::fs::create_dir_all(dest_path).await?;
     let mut tasks: Vec<JoinHandle<Result<(), Error>>> = Vec::new();
-    let mut read_dir: ReadDir = read_dir(src_path).await?;
+    let mut read_dir: ReadDir = tokio::fs::read_dir(src_path).await?;
     while let Some(entry) = read_dir.next_entry().await? {
         let file_name: OsString = entry.file_name();
         let src_file_path: PathBuf = entry.path();

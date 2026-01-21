@@ -13,4 +13,13 @@ mod write;
 
 pub use {copy::*, delete::*, file::*, r#move::*, read::*, write::*};
 
-use std::fmt;
+use std::{
+    ffi::OsString,
+    fmt,
+    fs::DirEntry,
+    io::Error,
+    path::{Path, PathBuf},
+    pin::Pin,
+};
+
+use tokio::{fs::ReadDir, spawn, task::JoinHandle};

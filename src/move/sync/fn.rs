@@ -1,6 +1,4 @@
-use std::ffi::OsString;
-use std::path::Path;
-use std::path::PathBuf;
+use crate::*;
 
 /// Moves a file from the source path to the destination path.
 ///

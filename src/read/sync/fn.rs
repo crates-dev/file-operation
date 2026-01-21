@@ -1,6 +1,4 @@
-use std::fs::*;
-use std::io::Read;
-use std::path::Path;
+use crate::*;
 
 /// Reads the content of a file and converts it to the specified type.
 ///
@@ -16,9 +14,9 @@ where
     T: From<Vec<u8>>,
 {
     let path: &Path = Path::new(file_path);
-    let mut file: File = File::open(path)?;
+    let mut file: std::fs::File = std::fs::File::open(path)?;
     let mut content: Vec<u8> = Vec::new();
-    file.read_to_end(&mut content)?;
+    std::io::Read::read_to_end(&mut file, &mut content)?;
     Ok(T::from(content))
 }
 
@@ -32,7 +30,7 @@ where
 ///
 /// - `Option<u64>` - The file size in bytes if successful, None otherwise.
 pub fn get_file_size(file_path: &str) -> Option<u64> {
-    metadata(file_path)
+    std::fs::metadata(file_path)
         .map(|metadata| Some(metadata.len()))
         .unwrap_or(None)
 }
