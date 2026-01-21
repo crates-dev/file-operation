@@ -4,13 +4,13 @@
 //! Includes operations for copy, delete, move, read and write files. Simplifies file handling
 //! in Rust projects with safe and efficient methods for file manipulation and metadata querying.
 
-pub(crate) mod copy;
-pub(crate) mod delete;
-pub(crate) mod file;
-pub(crate) mod r#move;
-pub(crate) mod read;
-pub(crate) mod write;
+mod copy;
+mod delete;
+mod file;
+mod r#move;
+mod read;
+mod write;
 
 pub use {copy::*, delete::*, file::*, r#move::*, read::*, write::*};
 
-pub(crate) use std::fmt;
+use std::fmt;
