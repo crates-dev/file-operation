@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Reads the content of a file and converts it to the specified type.
 ///

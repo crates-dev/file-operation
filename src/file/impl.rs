@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Provides conversion implementation from byte vector to FileDataString.
 impl From<Vec<u8>> for FileDataString {
