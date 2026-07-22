@@ -9,8 +9,8 @@ use super::*;
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if the file was moved successfully, Err with error details otherwise.
-pub fn move_file(src: &str, dest: &str) -> Result<(), std::io::Error> {
+/// - `Result<(), Error>` - Ok if the file was moved successfully, Err with error details otherwise.
+pub fn move_file(src: &str, dest: &str) -> Result<(), Error> {
     std::fs::rename(src, dest)?;
     Ok(())
 }
@@ -24,8 +24,8 @@ pub fn move_file(src: &str, dest: &str) -> Result<(), std::io::Error> {
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if the directory was moved successfully, Err with error details otherwise.
-pub fn move_dir(src_dir: &str, dest_dir: &str) -> Result<(), std::io::Error> {
+/// - `Result<(), Error>` - Ok if the directory was moved successfully, Err with error details otherwise.
+pub fn move_dir(src_dir: &str, dest_dir: &str) -> Result<(), Error> {
     let src_path: &Path = Path::new(src_dir);
     let dest_path: &Path = Path::new(dest_dir);
     if dest_path.exists() {

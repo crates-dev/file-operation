@@ -9,7 +9,7 @@ use super::*;
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if the file was copied successfully, Err with error details otherwise.
+/// - `Result<(), IoError>` - Ok if the file was copied successfully, Err with error details otherwise.
 pub async fn async_copy_file(src: &str, dest: &str) -> Result<(), Error> {
     tokio::fs::copy(src, dest).await?;
     Ok(())
@@ -24,7 +24,7 @@ pub async fn async_copy_file(src: &str, dest: &str) -> Result<(), Error> {
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if all files were copied successfully, Err with error details otherwise.
+/// - `Result<(), IoError>` - Ok if all files were copied successfully, Err with error details otherwise.
 pub async fn async_copy_dir_files(src_dir: &str, dest_dir: &str) -> Result<(), Error> {
     let src_path: &Path = Path::new(src_dir);
     let dest_path: &Path = Path::new(dest_dir);

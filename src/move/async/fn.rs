@@ -9,7 +9,7 @@ use super::*;
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if the file was moved successfully, Err with error details otherwise.
+/// - `Result<(), IoError>` - Ok if the file was moved successfully, Err with error details otherwise.
 pub async fn async_move_file(src: &str, dest: &str) -> Result<(), Error> {
     tokio::fs::rename(src, dest).await?;
     Ok(())
@@ -24,7 +24,7 @@ pub async fn async_move_file(src: &str, dest: &str) -> Result<(), Error> {
 ///
 /// # Returns
 ///
-/// - `Pin<Box<dyn Future<Output = Result<(), std::io::Error>> + 'a>>` - A pinned boxed future that resolves to the move operation result.
+/// - `Pin<Box<dyn Future<Output = Result<(), IoError>> + 'a>>` - A pinned boxed future that resolves to the move operation result.
 pub fn async_move_dir<'a>(
     src_dir: &'a str,
     dest_dir: &'a str,

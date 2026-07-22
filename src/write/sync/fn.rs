@@ -9,7 +9,7 @@ use super::*;
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if successful, Err with error details otherwise.
+/// - `Result<(), IoError>` - Ok if successful, Err with error details otherwise.
 pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
     if let Some(parent_dir) = std::path::Path::new(file_path).parent() {
         std::fs::create_dir_all(parent_dir)?;
@@ -31,7 +31,7 @@ pub fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if successful, Err with error details otherwise.
+/// - `Result<(), IoError>` - Ok if successful, Err with error details otherwise.
 pub fn append_to_file(file_path: &str, content: &[u8]) -> Result<(), Error> {
     if let Some(parent_dir) = std::path::Path::new(file_path).parent() {
         std::fs::create_dir_all(parent_dir)?;

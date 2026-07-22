@@ -8,7 +8,7 @@ use super::*;
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if the file was deleted successfully, Err with error details otherwise.
+/// - `Result<(), IoError>` - Ok if the file was deleted successfully, Err with error details otherwise.
 pub async fn async_delete_file(path: &str) -> Result<(), Error> {
     tokio::fs::remove_file(path).await
 }
@@ -21,7 +21,7 @@ pub async fn async_delete_file(path: &str) -> Result<(), Error> {
 ///
 /// # Returns
 ///
-/// - `Result<(), std::io::Error>` - Ok if the directory was deleted successfully, Err with error details otherwise.
+/// - `Result<(), IoError>` - Ok if the directory was deleted successfully, Err with error details otherwise.
 pub async fn async_delete_dir(path: &str) -> Result<(), Error> {
     let dir_path: &Path = Path::new(path);
     tokio::fs::remove_dir_all(dir_path).await?;
